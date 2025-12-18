@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useKakaoLoader } from '@/features/map/hooks/useKakaoLoader';
-import { useGeolocation } from '@/features/location/hooks/useGeolocation';
-import { useRestaurants } from '@/features/restaurant/hooks/useRestaurants';
-import { useRecommendation } from '@/features/restaurant/hooks/useRecommendation';
-import { useFilter } from '@/features/filter/hooks/useFilter';
-import { RestaurantMap } from '@/features/map/components/RestaurantMap';
-import { FilterPanel } from '@/features/filter/components/FilterPanel';
-import { LocationButton } from '@/features/location/components/LocationButton';
-import { SearchBar } from '@/features/location/components/SearchBar';
-import { RecommendButton } from '@/features/restaurant/components/RecommendButton';
-import { RestaurantCard } from '@/features/restaurant/components/RestaurantCard';
-import type { FoodCategory } from '@/features/restaurant/types';
-import { DEFAULT_CENTER } from '@/lib/constants';
+import { useEffect, useState } from "react";
+import { useKakaoLoader } from "@/features/map/hooks/useKakaoLoader";
+import { useGeolocation } from "@/features/location/hooks/useGeolocation";
+import { useRestaurants } from "@/features/restaurant/hooks/useRestaurants";
+import { useRecommendation } from "@/features/restaurant/hooks/useRecommendation";
+import { useFilter } from "@/features/filter/hooks/useFilter";
+import { RestaurantMap } from "@/features/map/components/RestaurantMap";
+import { FilterPanel } from "@/features/filter/components/FilterPanel";
+import { LocationButton } from "@/features/location/components/LocationButton";
+import { SearchBar } from "@/features/location/components/SearchBar";
+import { RecommendButton } from "@/features/restaurant/components/RecommendButton";
+import { RestaurantCard } from "@/features/restaurant/components/RestaurantCard";
+import type { FoodCategory } from "@/features/restaurant/types";
+import { DEFAULT_CENTER } from "@/lib/constants";
 import {
   container,
   header,
@@ -25,14 +25,18 @@ import {
   restaurantGrid,
   emptyState,
   loadingState,
-} from './page.css';
+} from "./page.css";
 
 export default function HomePage() {
   // Kakao Maps SDK 로드
   useKakaoLoader();
 
   // 위치 감지
-  const { location, isLoading: locationLoading, getCurrentLocation } = useGeolocation();
+  const {
+    location,
+    isLoading: locationLoading,
+    getCurrentLocation,
+  } = useGeolocation();
   const [currentCenter, setCurrentCenter] = useState(DEFAULT_CENTER);
 
   // 맛집 검색
@@ -46,7 +50,9 @@ export default function HomePage() {
   const { filter, filtered, updateFilter } = useFilter(restaurants);
 
   // 추천
-  const { recommended, recommend } = useRecommendation(filtered.length > 0 ? filtered : restaurants);
+  const { recommended, recommend } = useRecommendation(
+    filtered.length > 0 ? filtered : restaurants
+  );
 
   // 초기 로드 시 현재 위치로 검색
   useEffect(() => {
@@ -87,11 +93,11 @@ export default function HomePage() {
   return (
     <div className={container}>
       <header className={header}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <img
-            src="/icons/lunch-og.png"
+            src="/icons/representive.png"
             alt="아무거나 로고"
-            style={{ width: '48px', height: '48px', borderRadius: '12px' }}
+            style={{ width: "48px", height: "48px", borderRadius: "12px" }}
           />
           <h1 className={title}>아무거나</h1>
         </div>
@@ -152,8 +158,8 @@ export default function HomePage() {
           ) : (
             <div className={emptyState}>
               {filter.categories.length > 0
-                ? '선택한 카테고리의 맛집이 없습니다. 다른 카테고리를 선택해보세요.'
-                : '주변에 맛집이 없습니다. 반경을 넓혀보세요.'}
+                ? "선택한 카테고리의 맛집이 없습니다. 다른 카테고리를 선택해보세요."
+                : "주변에 맛집이 없습니다. 반경을 넓혀보세요."}
             </div>
           )}
         </section>
