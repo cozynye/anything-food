@@ -1,4 +1,4 @@
-import type { Hospital, Coordinates } from '../types/hospital';
+import type { Restaurant, Coordinates } from '../features/restaurant/types';
 
 /**
  * Haversine Formula를 사용하여 두 좌표 간의 거리를 계산
@@ -30,23 +30,23 @@ export function calculateDistance(
 }
 
 /**
- * 좌표로부터 반경 내에 있는 병원 필터링
- * @param hospitals 전체 병원 목록
+ * 좌표로부터 반경 내에 있는 맛집 필터링
+ * @param restaurants 전체 맛집 목록
  * @param center 중심 좌표
  * @param radiusMeters 반경 (미터)
- * @returns 반경 내 병원 목록
+ * @returns 반경 내 맛집 목록
  */
-export function filterHospitalsInRadius(
-  hospitals: Hospital[],
+export function filterRestaurantsInRadius(
+  restaurants: Restaurant[],
   center: Coordinates,
   radiusMeters: number = 500
-): Hospital[] {
-  return hospitals.filter((hospital) => {
+): Restaurant[] {
+  return restaurants.filter((restaurant) => {
     const distance = calculateDistance(
       center.lat,
       center.lng,
-      hospital.lat,
-      hospital.lng
+      restaurant.coordinates.lat,
+      restaurant.coordinates.lng
     );
     return distance <= radiusMeters;
   });

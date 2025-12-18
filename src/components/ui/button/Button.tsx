@@ -3,11 +3,10 @@ import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@/lib/cn';
 import { buttonStyles, type ButtonVariants } from './Button.css';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    ButtonVariants {
-  asChild?: boolean;
-}
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonVariants & {
+    asChild?: boolean;
+  };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {

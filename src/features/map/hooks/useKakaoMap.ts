@@ -2,7 +2,7 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import type { Coordinates } from '../../restaurant/types';
 
 interface UseKakaoMapReturn {
-  mapRef: React.RefObject<HTMLDivElement>;
+  mapRef: React.RefObject<HTMLDivElement | null>;
   map: any | null;
   center: Coordinates;
   level: number;
