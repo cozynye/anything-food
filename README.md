@@ -69,11 +69,19 @@ pnpm install
 ```
 
 ### 2. 환경 변수 설정
-`.env.local` 파일을 생성하고 Kakao API 키를 입력하세요:
+`.env.local` 파일을 생성하고 필요한 환경 변수를 설정하세요:
+
 ```env
-NEXT_PUBLIC_KAKAO_MAP_API_KEY=your_kakao_api_key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+# Kakao Maps API 키 (필수)
+NEXT_PUBLIC_KAKAO_MAP_API_KEY=your_kakao_api_key_here
+
+# 사이트 URL (필수)
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
+
+> 💡 `.env.example` 파일을 참고하세요!
+>
+> **참고**: Google/Naver 사이트 인증 메타태그는 `src/app/layout.tsx`에 직접 설정되어 있습니다.
 
 ### 3. 개발 서버 실행
 ```bash

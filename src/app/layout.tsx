@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     images: [ogImage],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: 'mJkJTBBd_7dbU9mLZXwirvRk_8r34RENokY5OZPTz4A',
     other: {
-      'naver-site-verification': [process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION || ''],
+      'naver-site-verification': ['61559f9445f6cb441cb55cf213162651e76d8005'],
     },
   },
   alternates: {
